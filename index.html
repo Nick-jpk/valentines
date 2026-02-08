@@ -1,11 +1,123 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.6/lottie.min.js"></script>
-<div id="tanjiroAnim" style="width:300px;height:300px;"></div>
-<script>
-  lottie.loadAnimation({
-    container: document.getElementById('tanjiroAnim'),
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: 'animations/tanjiro-sparring.json'
-  });
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Anime Sword Sparring</title>
+<style>
+  body {
+    background: radial-gradient(#0a0a0a, #000);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .fighter {
+    position: relative;
+    width: 120px;
+    height: 220px;
+    animation: idle 2s infinite ease-in-out;
+  }
+
+  /* BODY */
+  .body {
+    position: absolute;
+    width: 60px;
+    height: 90px;
+    background: #2b7a78;
+    border-radius: 20px;
+    left: 30px;
+    top: 60px;
+  }
+
+  /* HEAD */
+  .head {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #f5cfa0;
+    border-radius: 50%;
+    left: 35px;
+    top: 10px;
+  }
+
+  /* ARM */
+  .arm {
+    position: absolute;
+    width: 15px;
+    height: 70px;
+    background: #f5cfa0;
+    left: 10px;
+    top: 70px;
+    transform-origin: top;
+    animation: attack 2s infinite ease-in-out;
+  }
+
+  /* SWORD */
+  .sword {
+    position: absolute;
+    width: 6px;
+    height: 120px;
+    background: linear-gradient(#ccc, #eee);
+    left: 5px;
+    top: 60px;
+    border-radius: 3px;
+  }
+
+  /* SWORD GLOW */
+  .sword::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(0,255,255,0.4);
+    top: -10px;
+    left: -7px;
+    filter: blur(8px);
+  }
+
+  /* ANIMATIONS */
+  @keyframes attack {
+    0%   { transform: rotate(10deg); }
+    50%  { transform: rotate(-90deg); }
+    100% { transform: rotate(10deg); }
+  }
+
+  @keyframes idle {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  /* SLASH EFFECT */
+  .slash {
+    position: absolute;
+    width: 200px;
+    height: 5px;
+    background: linear-gradient(to right, transparent, cyan, transparent);
+    opacity: 0;
+    animation: slash 2s infinite;
+  }
+
+  @keyframes slash {
+    0% { opacity: 0; transform: translateX(-150px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: translateX(150px); }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="fighter">
+  <div class="head"></div>
+  <div class="body"></div>
+  <div class="arm">
+    <div class="sword"></div>
+  </div>
+</div>
+
+<div class="slash"></div>
+
+</body>
+</html>
