@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: pink;
+  text-align: center;
+  padding: 50px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+h1 { color: red; }
+p { color: purple; }
+
+button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button:hover { background: darkred; }
